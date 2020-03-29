@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>GET GITHUB USERS</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#Home"><i class="fa fa-github-square fa-2x"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#Home">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#github-users">Users</a>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search single user" name="searchuser" aria-label="Search" id="search-user" autocomplete="off">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="get-user">Search</button>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid" id="Home">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group  text-center">
+            <h1 class="display-4">Get Github Users</h1>
+            <p> Search for Multiple users by separating each username with a comma</p>
+            <input type="text" name="searchusers" id="search-users" placeholder="Search multiple Users" autocomplete="off">
+            <div id="button-div">
+              <button class="btn btn-lg btn-outline-success justify-content-center"  id="get-users">Get Users</button>
+            </div>
+          <div>
+        </div>
+      </div>
+    </div>
+    <div id="github-users"></div>
+    <div id="github-user"></div>
+    <script src="logic.js" charset="utf-8"></script>
+    </body>
+</html>
