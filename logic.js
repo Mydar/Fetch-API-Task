@@ -17,6 +17,9 @@ function getUsers() {
         console.log(usersResponse);
         renderUsers(usersResponse);
       })
+      .catch((err) => {
+        alert('ERROR! Check that all usernames are correct.');
+      })
     }
   }
 
@@ -31,7 +34,13 @@ function getUsers() {
     userRequests.push(userRequest);
   })
 	output = await Promise.all(userRequests)
-	.then(responses => Promise.all(responses.map(response => response.json())))
+	.then(responses => Promise.all(responses.map(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      return Promise.reject(response)
+    }
+  })))
 	.then(users => {return users});
   console.log(output);
   return output;
@@ -67,7 +76,13 @@ function getUser() {
 function outputUser(name) {
   let userView = "";
   fetch(`https://api.github.com/users/${name}`)
-  .then((response) => response.json())
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    }else {
+      return Promise.reject(response);
+    }
+  })
   .then((data) => {
     userView += `
     <div class="user">
@@ -80,5 +95,8 @@ function outputUser(name) {
     </div>
     `
     document.getElementById('github-user').innerHTML = userView;
+  })
+  .catch((err) => {
+    alert('ERROR! Please enter correct username');
   })
 }
